@@ -1,0 +1,21 @@
+<input type="text" [(ngModel)]="nameSearch" class="search-name" placeholder="Search by Project Name" />
+<table class="projects-wrapper">
+    <thead>
+    <tr>
+        <th class="clickable" (click)="arrange('name')">Project <i class="fa" [ngClass]="{'fa-sort': column != 'name',
+        'fa-sort-asc': (column == 'name' && !downSorted), 'fa-sort-desc': (column == 'name' && downSorted) }" aria-hidden="true"></i></th>
+
+        <th class="clickable" (click)="arrange('open_issues')">Issues <i class="fa" [ngClass]="{'fa-sort': column != 'open_issues',
+        'fa-sort-asc': (column == 'open_issues' && !downSorted), 'fa-sort-desc': (column == 'open_issues' && downSorted) }" aria-hidden="true"></i></th>
+
+        <th class="clickable" (click)="arrange('watchers')">Watchers <i class="fa" [ngClass]="{'fa-sort': column != 'watchers',
+        'fa-sort-asc': (column == 'watchers' && !downSorted), 'fa-sort-desc': (column == 'watchers' && downSorted) }" aria-hidden="true"></i></th>
+
+        <th class="clickable" (click)="arrange('owner.login')">Developer <i class="fa" [ngClass]="{'fa-sort': column != 'owner.login',
+        'fa-sort-asc': (column == 'owner.login' && !downSorted), 'fa-sort-desc': (column == 'owner.login' && downSorted) }" aria-hidden="true"> </i></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let project of projects | search: nameSearch | arrange: {property: column, direction: direction}">
+        <td>{{ project.name }}</td><td>{{ project.open_issues }}</td><td>{{project.watchers}}</td><td><img width="25" height="25" src="{{ project.owner.avatar_url }}"><br />{{project.owner.login}}</td>
+    </tr>
+</table>

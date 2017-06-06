@@ -1,0 +1,15 @@
+.idea
+node_modules
+.idea/
+node_modules/
+src/app/assets/images/
+src/app/providers/ProjectData.js
+src/app/providers/ProjectData.js.map
+src/app/directives/arrange.pipe.js
+src/app/directives/arrange.pipe.js.map
+src/app/directives/search.pipe.js
+src/app/directives/search.pipe.js.map
+/src/app/app.component.js.map
+/src/app/app.component.js
+/src/app/app.module.js
+/src/app/app.module.js.map
